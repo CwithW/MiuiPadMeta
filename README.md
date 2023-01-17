@@ -1,8 +1,10 @@
 # MiuiPadMeta
 
-
 为小米平板5系列恢复键盘Meta/Win键功能，同时禁用Alt-Tab快捷键，仅测试基于Android11的MIUI，不保证Android12可以运行
+
 Restore Meta/Win key function on Mi Pad 5 series, and disable Alt-Tab hotkey, only tested Android11 MIUI, no promise Android12 will work 
+
+
 
 PC模式下的快捷键依旧可用，PC模式的快捷键是另一套逻辑实现
 
@@ -14,7 +16,7 @@ PC模式下的快捷键依旧可用，PC模式的快捷键是另一套逻辑实�
 
 ### 实现方法 Implementation detail
 1. 让`com.android.server.policy.MiuiKeyShortcutManager.getEnableKsFeature`固定返回false，MIUI的快捷键就不会使能
-  （或：`setprop persist.sys.enable_custom_shortcut_user 0`）
+    （或：`setprop persist.sys.enable_custom_shortcut_user 0`）
 
    实现方法：hook `com.android.server.policy.MiuiKeyShortcutManager.getEnableKsFeature` 固定返回false
 
