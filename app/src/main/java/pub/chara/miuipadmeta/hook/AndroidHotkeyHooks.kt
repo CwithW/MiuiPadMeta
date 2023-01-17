@@ -14,26 +14,12 @@ object AndroidHotkeyHooks : BaseHook() {
             }.hookBefore { param ->
                 run {
                     val arg1: KeyEvent = param.args[1] as KeyEvent;
-                    // alt-tab and win-d
-                    if ((arg1.isAltPressed && arg1.keyCode == 61) || (arg1.isMetaPressed && arg1.keyCode == 32)) {
+                    // alt-tab
+                    if ((arg1.isAltPressed && arg1.keyCode == 61)) {
                         param.result = 0L;
                     }
                 }
             }
-/*            //test: intent constructor hooker
-            findAllConstructors("android.content.Intent"){
-                true
-            }.forEach { constructor -> run{
-                constructor.hookBefore { param -> run{
-                    try{
-                        1/0
-                    }catch(e:Throwable){
-                        XposedBridge.log("new Intent")
-                        XposedBridge.log(e)
-                    }
-                } }
-            } }*/
-
 
             XposedBridge.log("MiuiPadMeta: AndroidHotkeyHooks success!")
         } catch (e: Throwable) {
