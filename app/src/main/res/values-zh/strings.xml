@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="xposed_desc">为小米平板5系列恢复键盘Meta/Win键功能，同时禁用Alt-Tab快捷键，仅测试基于Android11的MIUI，不保证Android12可以运行</string>
+</resources>
