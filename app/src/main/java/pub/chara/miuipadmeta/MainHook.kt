@@ -23,20 +23,10 @@ class MainHook : IXposedHookLoadPackage {
             if (Build.VERSION.SDK_INT <= Build.VERSION_CODES.R) {
                 XposedBridge.log("MiuiPadMeta: Using Android 11 hooks.")
                 initHooks(MIUIHotkeyHooksAndroid11)
-                initHooks(AndroidHotkeyHooks)
-            } else if (Build.VERSION.SDK_INT == Build.VERSION_CODES.S || Build.VERSION.SDK_INT == Build.VERSION_CODES.S_V2) {
-                XposedBridge.log("MiuiPadMeta: Using Android 12 hooks.")
+            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
+                XposedBridge.log("MiuiPadMeta: Using Android 12+ hooks.")
                 initHooks(MIUIHotkeyHooksAndroid12)
-                initHooks(AndroidHotkeyHooks)
-            } else if (Build.VERSION.SDK_INT >= 33) { // Android 13
-                XposedBridge.log("MiuiPadMeta: Using Android 13 hooks.")
-                initHooks(MIUIHotkeyHooksAndroid13)
-                initHooks(AndroidHotkeyHooks)
-            }/* else { // unsupported os version
-                XposedBridge.log("MiuiPadMeta: This version of Android is not supported. Only disable Alt-Tab will be used.")
-                initHooks(AndroidHotkeyHooks)
-            }*/
-
+            }
         }
     }
 

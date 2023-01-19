@@ -16,8 +16,8 @@ MIUI Android11: PC模式下的快捷键依旧可用，PC模式的快捷键是另
 | ------------------ | ---------- | ----------- |
 | MIUI12.5 Android11 | ?          | ?           |
 | MIUI13 Android11   | √          | √           |
-| MIUI13 Android12   | ?          | ?           |
-| MIUI14 Android13   | ?          | √           |
+| MIUI13 Android12   | √          | √           |
+| MIUI14 Android13   | √          | √           |
 | 非MIUI系统         | N/A        | ? *         |
 
 √ 表示经过测试，目前支持
@@ -30,11 +30,23 @@ MIUI Android11: PC模式下的快捷键依旧可用，PC模式的快捷键是另
 
 
 
+#### 在以下系统版本实机测试可以使用：
+
+小米平板5Pro MIUI稳定版13.0.8.0 Android11
+
+小米平板5Pro MIUI稳定版13.0.10 Android11
+
+小米平板5Pro MIUI稳定版13.1.4.0 Android12
+
+小米平板5Pro MIUI开发版14.0.23.1.9 Android13
+
 ### 鸣谢 Special thanks
+
+本模块借鉴了 [MiuiPadESC](https://github.com/YifePlayte/MiuiPadESC) 的框架代码。
 
 [MiuiPadESC](https://github.com/YifePlayte/MiuiPadESC) 配合此模块可以恢复ESC和禁用Win-D快捷键，实现远程桌面下全部键位可用
 
-
+[MaxMiPadInput](https://github.com/YifePlayte/MaxMiPadInput) MIUI14 下 MiuiPadESC失效 需要用这个模块恢复ESC
 
 ### 实现方法 Implementation detail
 
@@ -57,29 +69,26 @@ MIUI Android11: PC模式下的快捷键依旧可用，PC模式的快捷键是另
 
 1. 同Android11 （但是这个类不在services.jar里在miui-services.jar里）
 
-2. Android11的方法里的List被改成了 `com.android.server.policy.PhoneWindowManagerStubImpl`里的`private static final List<String> DELIVE_META_APPS` 但是他是final的改不了
+   (内部实现从setprop变成了`settings put system is_custom_shortcut_effective 0`)
 
-   实现方法：有这个函数
+2. 存在`com.android.server.policy.PhoneWindowManagerStubImpl.DELIVE_META_APPS` 被`com.android.server.policy.PhoneWindowManagerStubImpl.interceptKeyWithMeta()`使用 但是这个函数P用没有
 
-   ```java
-       public boolean interceptKeyWithMeta() {
-           WindowManagerPolicy.WindowState windowState = this.mFocusedWindow;
-           return windowState == null || !DELIVE_META_APPS.contains(windowState.getOwningPackage());
-       }
-   ```
-
-   直接hook这个函数固定返回false就行
+   所以和alt-tab的实现方法一样：直接hook `com.android.server.policy.PhoneWindowManager.interceptKeyBeforeDispatching` 如果有按下meta键就直接返回0不拦截 简单粗暴
 
 3. 同Android11
 
 #### Android13
 
-1. 同Android12（但是这个miui-services.jar不在system/framework里而在system_ext.img/framework里）
-2. 同Android12
-3. 同Android11
+​	同Android12 不需要单独适配
 
 
 ### 截图 Screenshot
 
 ![Screenshot_2023-01-18-03-08-54-671_com.microsoft.rdc.androidx](README.assets/Screenshot_2023-01-18-03-08-54-671_com.microsoft.rdc.androidx-16741303149715.jpg)
 ![Screenshot_2023-01-18-03-09-31-674_com.microsoft.rdc.androidx](README.assets/Screenshot_2023-01-18-03-09-31-674_com.microsoft.rdc.androidx.jpg)
+
+### 第三方开源引用 Open Source License
+
+##### Apache License 2.0
+
+[KyuubiRan/EzXHelper](https://github.com/KyuubiRan/EzXHelper)
