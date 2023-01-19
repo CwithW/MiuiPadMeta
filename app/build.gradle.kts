@@ -10,8 +10,8 @@ android {
         applicationId = "pub.chara.miuipadmeta"
         minSdk = 30
         targetSdk = 32
-        versionCode = 3
-        versionName = "2"
+        versionCode = 4
+        versionName = "2.1"
     }
 
     buildTypes {

@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">MiuiPadMeta</string>
-    <string name="xposed_desc">"Restore Meta/Win key function on Mi Pad 5 series, and disable Alt-Tab hotkey, only tested Android11 MIUI, no promise Android12 will work "</string>
+    <string name="xposed_desc">Restore Meta/Win key function on Mi Pad 5 series, and disable Alt-Tab hotkey, adapted for Android 11-13 MIUI</string>
 </resources>
