@@ -4,7 +4,7 @@ import com.github.kyuubiran.ezxhelper.utils.*
 import pub.chara.miuipadmeta.MyFakeList
 import de.robv.android.xposed.XposedBridge
 
-object MIUIHotkeyHooks : BaseHook() {
+object MIUIHotkeyHooksAndroid11 : BaseHook() {
     override fun init() {
         try {
             // miui have a whitelist, only app in whitelist can receive meta key, else it is blocked
@@ -16,12 +16,10 @@ object MIUIHotkeyHooks : BaseHook() {
             //disable miui hotkeys
             findMethod("com.android.server.policy.MiuiKeyShortcutManager") {
                 name == "getEnableKsFeature"
-            }.hookBefore { param ->
-                param.result = false
-            }
-            XposedBridge.log("MiuiPadMeta: MIUIHotkeyHooks success!")
+            }.hookReturnConstant(false)
+            XposedBridge.log("MiuiPadMeta: MIUIHotkeyHooksAndroid11 success!")
         } catch (e: Throwable) {
-            XposedBridge.log("MiuiPadMeta: MIUIHotkeyHooks failed!")
+            XposedBridge.log("MiuiPadMeta: MIUIHotkeyHooksAndroid11 failed!")
             XposedBridge.log(e)
         }
     }
