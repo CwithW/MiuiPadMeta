@@ -10,3 +10,7 @@
 local.properties
 /app/release
 /key
+/gitrepo
+*.jar.cache
+*.apk.cache
+/developmentData
