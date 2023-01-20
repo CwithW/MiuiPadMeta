@@ -1,11 +1,7 @@
 # MiuiPadMeta
 
-为MIUI设备恢复键盘Meta/Win键功能（禁用掉小米的快捷键），同时禁用Alt-Tab快捷键。这样就可以在远程桌面里用Meta键和Alt-Tab了。
-Restore Meta/Win key function on MIUI devices(disable Xiaomi hotkeys), and disable Alt-Tab hotkey. Allows you to use Meta and Alt-Tab key in Remote Desktop。
-
-
-
-MIUI Android11: PC模式下的快捷键依旧可用，PC模式的快捷键是另一套逻辑实现
+为MIUI设备恢复键盘Meta/Win键功能（禁用掉小米的快捷键），同时禁用Alt-Tab快捷键。这样就可以在远程桌面里用Meta键和Alt-Tab了。适配小米平板5系列以及Android12+的MIUI手机。
+Restore Meta/Win key function on MIUI devices(disable Xiaomi hotkeys), and disable Alt-Tab hotkey. Allows you to use Meta and Alt-Tab key in Remote Desktop。Adapted for Xiaomi Pad 5 Series and MIUI phones with Android12+.
 
 
 
@@ -13,11 +9,11 @@ MIUI Android11: PC模式下的快捷键依旧可用，PC模式的快捷键是另
 
 | 系统版本           | 恢复Meta键 | 禁用Alt-Tab |
 | ------------------ | ---------- | ----------- |
-| MIUI12.5 Android11 | ?          | ?           |
-| MIUI13 Android11   | √          | √           |
+| MIUI12.5 Android11 | ?*         | ?           |
+| MIUI13 Android11   | √*         | √           |
 | MIUI13 Android12   | √          | √           |
 | MIUI14 Android13   | √          | √           |
-| 非MIUI系统         | N/A        | ? *         |
+| 非MIUI系统         | N/A        | ? **        |
 
 √ 表示经过测试，目前支持
 
@@ -25,7 +21,13 @@ MIUI Android11: PC模式下的快捷键依旧可用，PC模式的快捷键是另
 
 × 表示经过测试，目前不支持
 
-> *禁用Alt-Tab理论上在所有Android系统上支持。
+> *Android11上仅支持小米平板5系列，不支持MIUI手机
+>
+> *MIUI for Pad Android11: PC模式下的快捷键依旧可用，PC模式的快捷键是另一套逻辑实现，请退出PC模式
+>
+> **禁用Alt-Tab理论上在所有Android系统上支持。
+>
+> [DisableAltTab](https://modules.lsposed.org/module/pub.chara.disablealttab) 模块为独立出来的禁用Alt-Tab功能，适配所有Android设备。
 
 
 
@@ -41,13 +43,17 @@ MIUI Android11: PC模式下的快捷键依旧可用，PC模式的快捷键是另
 
 红米K50 MIUI稳定版13.0.24 Android12
 
+红米K50 MIUI稳定版14.0.4 Android13
+
+
+
 ### 鸣谢 Special thanks
 
 本模块借鉴了 [MiuiPadESC](https://github.com/YifePlayte/MiuiPadESC) 的框架代码。
 
-[MiuiPadESC](https://github.com/YifePlayte/MiuiPadESC) 配合此模块可以恢复ESC和禁用Win-D快捷键，实现远程桌面下全部键位可用
+[MiuiPadESC](https://modules.lsposed.org/module/com.yifeplayte.miuipadesc) 配合此模块可以恢复ESC和禁用Win-D快捷键，实现远程桌面下全部键位可用
 
-[MaxMiPadInput](https://github.com/YifePlayte/MaxMiPadInput) MIUI14 下 MiuiPadESC失效 需要用这个模块恢复ESC
+[MaxMiPadInput](https://modules.lsposed.org/module/com.yifeplayte.maxmipadinput) MIUI14 下 MiuiPadESC失效 需要用这个模块恢复ESC
 
 ### 实现方法 Implementation detail
 
