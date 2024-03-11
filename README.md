@@ -11,11 +11,11 @@ Restore Meta/Win key function on MIUI devices(disable Xiaomi hotkeys), and disab
 | 系统版本           | 恢复Meta键 | 禁用Alt-Tab |
 | ------------------ | ---------- | ----------- |
 | MIUI12.5 Android11 | ? *         | ?           |
-| MIUI13 Android11   | √ *         | √           |
+| MIUI13 Android11   | √ **         | √           |
 | MIUI13 Android12   | √          | √           |
 | MIUI14 Android13   | √          | √           |
-| HyperOS/MIUI15         | ? ****        | ? **         |
-| 非MIUI系统         | N/A        | ? **        |
+| ~~MIUI15~~ HyperOS         | ? ****        | ? ***         |
+| 非MIUI系统         | N/A        | ? ***        |
 
 √ 表示经过测试，目前支持
 
@@ -25,11 +25,11 @@ Restore Meta/Win key function on MIUI devices(disable Xiaomi hotkeys), and disab
 
 > *Android11上仅支持小米平板5系列，不支持MIUI手机
 >
-> *MIUI for Pad Android11: PC模式下的快捷键依旧可用，PC模式的快捷键是另一套逻辑实现，请退出PC模式
+> **MIUI for Pad Android11: PC模式下的快捷键依旧可用，PC模式的快捷键是另一套逻辑实现，请退出PC模式
 >
-> **禁用Alt-Tab理论上在所有Android系统上支持。
+> ***禁用Alt-Tab理论上在所有Android系统上支持。
 >
-> **** 小米在HyperOS加强了对Bootloader权限的管控，我暂未将我的设备更新到HyperOS，所以无法测试。
+> **** 小米在HyperOS加强了对Bootloader权限的管控，我暂未将我的Xiaomi Pad 5 Pro设备更新到HyperOS，所以无法测试。
 >
 > [DisableAltTab](https://modules.lsposed.org/module/pub.chara.disablealttab) 模块为独立出来的禁用Alt-Tab功能，适配所有Android设备。
 
