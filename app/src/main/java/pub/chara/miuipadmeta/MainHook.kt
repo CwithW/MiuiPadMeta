@@ -27,6 +27,8 @@ class MainHook : IXposedHookLoadPackage {
                 XposedBridge.log("MiuiPadMeta: Using Android 12+ hooks.")
                 initHooks(MIUIHotkeyHooksAndroid12)
             }
+
+//            initHooks(TestHook())
         }
     }
 
