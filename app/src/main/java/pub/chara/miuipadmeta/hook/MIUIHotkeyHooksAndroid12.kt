@@ -34,9 +34,8 @@ object MIUIHotkeyHooksAndroid12 : BaseHook() {
             XposedBridge.log("MiuiPadMeta: MIUIHotkeyHooksAndroid12 hook PhoneWindowManager.interceptKeyBeforeDispatching failed!")
             XposedBridge.log(e)
         }
-
+        // disable miui hotkeys
         try {
-            // disable miui hotkeys
             findMethod("com.android.server.policy.MiuiKeyShortcutManager") {
                 name == "getEnableKsFeature"
             }.hookReturnConstant(false)
