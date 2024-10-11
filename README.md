@@ -14,7 +14,7 @@ Restore Meta/Win key function on MIUI devices(disable Xiaomi hotkeys), and disab
 | MIUI13 Android11   | √ **         | √           |
 | MIUI13 Android12   | √          | √           |
 | MIUI14 Android13   | √          | √           |
-| ~~MIUI15~~ HyperOS         | ? ****        | ? ***         |
+| HyperOS         | √? ****       | √? ***        |
 | 非MIUI系统         | N/A        | ? ***        |
 
 √ 表示经过测试，目前支持
@@ -91,6 +91,14 @@ Restore Meta/Win key function on MIUI devices(disable Xiaomi hotkeys), and disab
 #### Android13
 
 ​	同Android12 不需要单独适配
+
+#### HyperOS
+
+部分功能（如按下Meta唤出Dock栏）放到了`com.android.server.policy.BaseMiuiPhoneWindowManager.handleMetaKey`里处理（在miui-services.jar）
+
+win+xx快捷键，没找着在哪handle的，建议小米设置里关了得了
+
+
 
 
 ### 截图 Screenshot
