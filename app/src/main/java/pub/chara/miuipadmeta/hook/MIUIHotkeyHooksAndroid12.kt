@@ -37,10 +37,9 @@ object MIUIHotkeyHooksAndroid12 : BaseHook() {
 
         try {
             // disable miui hotkeys
-            // 用orNull为了兼容不是miui的设备 也可以禁用alt-tab
-                findMethod("com.android.server.policy.MiuiKeyShortcutManager") {
-                    name == "getEnableKsFeature"
-                }.hookReturnConstant(false)
+            findMethod("com.android.server.policy.MiuiKeyShortcutManager") {
+                name == "getEnableKsFeature"
+            }.hookReturnConstant(false)
         }catch (e:Exception){
             XposedBridge.log("MiuiPadMeta: MIUIHotkeyHooksAndroid12 hook MiuiKeyShortcutManager.getEnableKsFeature failed! (this may not impact usage depending on MIUI version.)")
             XposedBridge.log(e)
